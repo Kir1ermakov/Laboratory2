@@ -3,28 +3,28 @@ name: C++ CI
 on:
   push:
     branches:
-      - main  # Запускать на каждый push в ветку main
+      - master  
   pull_request:
     branches:
-      - main  # Запускать на каждый pull request в ветку main
+      - master  
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Используем Linux для сборки
+    runs-on: ubuntu-22.04  
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2  # Скачиваем репозиторий
+        uses: actions/checkout@v2  
 
       - name: Set up C++ dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential  # Устанавливаем необходимые инструменты для сборки
+          sudo apt-get install -y build-essential libgtest-dev
 
       - name: Build
         run: |
-          g++ -o my_project main.cpp  # Здесь заменяй на команду для сборки своего проекта
+          make
 
       - name: Run tests
         run: |
-          ./my_project  # Запускаем тесты или приложение, чтобы убедиться в правильности работы
+          make test
