@@ -1,0 +1,30 @@
+name: C++ CI
+
+on:
+  push:
+    branches:
+      - main  # Запускать на каждый push в ветку main
+  pull_request:
+    branches:
+      - main  # Запускать на каждый pull request в ветку main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Используем Linux для сборки
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2  # Скачиваем репозиторий
+
+      - name: Set up C++ dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential  # Устанавливаем необходимые инструменты для сборки
+
+      - name: Build
+        run: |
+          g++ -o my_project main.cpp  # Здесь заменяй на команду для сборки своего проекта
+
+      - name: Run tests
+        run: |
+          ./my_project  # Запускаем тесты или приложение, чтобы убедиться в правильности работы
