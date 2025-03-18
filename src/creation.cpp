@@ -1,24 +1,17 @@
 #include "creation.h"
 
-class Creation {
-private:
-    int health;
+int Creation::getHealth() const {
+    return health;
+}
 
-public:
-    int getHealth() const {
-        return health;
-    }
-
-    void setHealth(int newHealth) {
-        if (newHealth >= 0)
-        {
+void Creation::setHealth(int newHealth) {
+    if (newHealth >= 0)
+    {
         health = newHealth;
-        }
-        
-        else
-        {
-            health = 0;
-        }
-            
     }
-};
+    
+    else
+    {
+        health = 0;
+    }
+}
