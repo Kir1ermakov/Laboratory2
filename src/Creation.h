@@ -10,16 +10,21 @@ private:
 
 public:
     /**
+     * @brief Виртуальный деструктор для корректного удаления объектов
+     */
+    virtual ~Creation() = default;
+
+    /**
      * @brief Получить текущее здоровье
      * @return Значение здоровья
      */
     int getHealth() const;
 
     /**
-     * @brief Установить новое значение здоровья
+     * @brief Установить новое значение здоровья      
      * @param newHealth Новое значение здоровья
      */
-    void setHealth(int newHealth);
+    virtual void setHealth(int newHealth);
 };
 
 #endif // CREATION_H 
