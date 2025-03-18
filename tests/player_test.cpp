@@ -101,8 +101,3 @@ TEST_F(PlayerTest, LevelUpHealthIncrease) {
     EXPECT_EQ(player->getMaxHealth(), 160);  // 100 + (4-1)*20
     EXPECT_EQ(player->getHealth(), 160);     // Здоровье должно восстановиться
 }
-
-int main(int argc, char **argv) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-} 
