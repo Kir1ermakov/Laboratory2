@@ -2,19 +2,41 @@ CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra
 TEST_FLAGS = -lgtest -lgtest_main -pthread
 
-all: main test/runTests
+SRC_DIR = src
+TEST_DIR = tests
+BUILD_DIR = build
 
-main: main.cpp
-	$(CXX) $(CXXFLAGS) main.cpp -o main
+# Исходные файлы
+SRCS = $(SRC_DIR)/сreation.cpp
+TEST_SRCS = $(TEST_DIR)/creation_test.cpp
 
-test/runTests: test/test.cpp
-	mkdir -p test
-	$(CXX) $(CXXFLAGS) test/test.cpp -o test/runTests $(TEST_FLAGS)
+# Объектные файлы
+OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o)
+TEST_OBJS = $(TEST_SRCS:$(TEST_DIR)/%.cpp=$(BUILD_DIR)/%.o)
 
-test: test/runTests
-	./test/runTests
+all: directories main test
+
+directories:
+	mkdir -p $(BUILD_DIR)
+	mkdir -p $(TEST_DIR)
+
+# Компиляция основной программы
+main: $(BUILD_DIR)/main
+$(BUILD_DIR)/main: $(SRC_DIR)/main.cpp $(OBJS)
+	$(CXX) $(CXXFLAGS) $^ -o $@
+
+# Компиляция тестов
+test: $(BUILD_DIR)/runTests
+	./$(BUILD_DIR)/runTests
+
+$(BUILD_DIR)/runTests: $(TEST_SRCS) $(OBJS)
+	$(CXX) $(CXXFLAGS) $^ -o $@ $(TEST_FLAGS)
+
+# Правило для компиляции .cpp в .o
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f main test/runTests *.o
+	rm -rf $(BUILD_DIR)
 
-.PHONY: all test clean *.o
+.PHONY: all directories test clean
