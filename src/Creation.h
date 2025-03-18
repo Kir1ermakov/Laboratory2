@@ -19,7 +19,7 @@ public:
      * @brief Установить новое значение здоровья      
      * @param newHealth Новое значение здоровья
      */
-    void setHealth(int newHealth);
+    virtual void setHealth(int newHealth);
 };
 
 #endif // CREATION_H 
