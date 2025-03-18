@@ -7,7 +7,7 @@ TEST_DIR = tests
 BUILD_DIR = build
 
 # Исходные файлы
-SRCS = $(SRC_DIR)/сreation.cpp
+SRCS = $(SRC_DIR)/creation.cpp
 TEST_SRCS = $(TEST_DIR)/creation_test.cpp
 
 # Объектные файлы
