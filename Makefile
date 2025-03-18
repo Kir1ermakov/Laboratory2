@@ -7,8 +7,8 @@ TEST_DIR = tests
 BUILD_DIR = build
 
 # Исходные файлы
-SRCS = $(SRC_DIR)/creation.cpp
-TEST_SRCS = $(TEST_DIR)/creation_test.cpp
+SRCS = $(SRC_DIR)/Creation.cpp $(SRC_DIR)/Player.cpp
+TEST_SRCS = $(TEST_DIR)/creation_test.cpp $(TEST_DIR)/player_test.cpp
 
 # Объектные файлы
 OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o)

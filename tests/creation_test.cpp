@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "../src/creation.h"
+#include "../src/Creation.h"
 
 class CreationTest : public ::testing::Test {
 protected:
