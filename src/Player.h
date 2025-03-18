@@ -1,7 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "creation.h"
+#include "Creation.h"
 #include <string>
 
 /**
