@@ -62,7 +62,7 @@ public:
      * @brief Установить здоровье (переопределение метода Creation)
      * @param newHealth Новое значение здоровья
      */
-    void setHealth(int newHealth);
+    void setHealth(int newHealth) override;
 };
 
 #endif // PLAYER_H 

@@ -16,7 +16,7 @@ public:
     int getHealth() const;
 
     /**
-     * @brief Установить новое значение здоровья
+     * @brief Установить новое значение здоровья      
      * @param newHealth Новое значение здоровья
      */
     void setHealth(int newHealth);
