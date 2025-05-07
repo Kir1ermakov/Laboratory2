@@ -1,15 +1,14 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra
-TEST_FLAGS = -lgtest -lgtest_main -pthread
+TEST_FLAGS = -pthread -lgtest -lgtest_main
 
 SRC_DIR = src
 TEST_DIR = tests
 BUILD_DIR = build
 
 # Исходные файлы
-SRCS = $(SRC_DIR)/Creation.cpp $(SRC_DIR)/Player.cpp
-TEST_SRCS = $(TEST_DIR)/creation_test.cpp $(TEST_DIR)/player_test.cpp
-
+SRCS = $(filter-out $(SRC_DIR)/main.cpp,$(wildcard $(SRC_DIR)/*.cpp))
+TEST_SRCS = $(wildcard $(TEST_DIR)/*.cpp)
 # Объектные файлы
 OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o)
 TEST_OBJS = $(TEST_SRCS:$(TEST_DIR)/%.cpp=$(BUILD_DIR)/%.o)
@@ -30,10 +29,13 @@ test: $(BUILD_DIR)/runTests
 	./$(BUILD_DIR)/runTests
 
 $(BUILD_DIR)/runTests: $(TEST_SRCS) $(OBJS)
-	$(CXX) $(CXXFLAGS) $^ -o $@ $(TEST_FLAGS)
+	$(CXX) $(CXXFLAGS) $^ $(TEST_FLAGS) -o $@
 
 # Правило для компиляции .cpp в .o
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/%.o: $(TEST_DIR)/%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
