@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-# Сгенерировать документацию, если её ещё нет
 if [ ! -f "build/docs/html/index.html" ]; then
   ./docs.sh
 fi
@@ -13,7 +12,6 @@ if [ ! -f "$DOCS_PATH" ]; then
   exit 1
 fi
 
-# Открыть в браузере в зависимости от платформы
 if command -v xdg-open >/dev/null 2>&1; then
   xdg-open "$DOCS_PATH" >/dev/null 2>&1 &
 elif command -v open >/dev/null 2>&1; then

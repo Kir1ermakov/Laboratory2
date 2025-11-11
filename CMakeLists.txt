@@ -49,6 +49,3 @@ if(DOXYGEN_FOUND)
         COMMENT "Генерация документации Doxygen"
         VERBATIM
     )
-else()
-    message(WARNING "Doxygen не найден, документация не будет создана")
-endif()

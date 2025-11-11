@@ -27,6 +27,3 @@ jobs:
 
       - name: Run tests
         run: ctest --test-dir build --output-on-failure -C Release
-
-      - name: Generate docs
-        run: cmake --build build --target doc_doxygen
