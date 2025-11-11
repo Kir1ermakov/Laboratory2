@@ -49,3 +49,4 @@ if(DOXYGEN_FOUND)
         COMMENT "Генерация документации Doxygen"
         VERBATIM
     )
+endif()
