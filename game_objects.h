@@ -9,7 +9,6 @@ enum class Direction {
     kLeft
 };
 
-// Forward declarations
 class Key;
 class Armor;
 class Door;
@@ -154,9 +153,6 @@ public:
     Direction get_direction() const;
 };
 
-
-
-// Forward declaration for Monster
 class Monster;
 
 class Bullet : public Projectile {
