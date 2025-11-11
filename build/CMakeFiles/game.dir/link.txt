@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/game.dir/main.cpp.o CMakeFiles/game.dir/game_objects.cpp.o CMakeFiles/game.dir/game_map.cpp.o -o game  -lcurses /usr/lib/x86_64-linux-gnu/libform.so 
