@@ -1,0 +1,5 @@
+if(EXISTS "/media/sf_Game/build/game_tests[1]_tests.cmake")
+  include("/media/sf_Game/build/game_tests[1]_tests.cmake")
+else()
+  add_test(game_tests_NOT_BUILT game_tests_NOT_BUILT)
+endif()

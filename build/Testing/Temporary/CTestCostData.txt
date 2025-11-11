@@ -1,0 +1,9 @@
+PlayerTest.DamageUsesArmor 3 0.0016666
+PlayerTest.KeyIncreasesCounter 3 0.0016666
+PlayerTest.NoDamageIfArmorExceedsHit 2 0.00349986
+BulletTest.HitMonsterWhenSameCell 2 0.00299988
+BulletTest.MissMonsterWhenDifferentCell 2 0.00349986
+BulletTest.HitBarrierWhenSameCell 2 0.00349986
+GrenadeTest.ExplosionAfterTimer 0 0
+EnvTest.DoorAndTrapChecksByCoordinates 2 0.0024999
+---
